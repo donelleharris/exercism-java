@@ -1,14 +1,18 @@
+import java.util.Arrays;
+
 class ResistorColorDuo {
     String [] colorArray = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
     
     int value(String[] colors) {
-        int code = -1;
-        StringBuilder colorCode = new StringBuilder();
-        for(int i = 0; i < colors.length; i++){
-            for(int j = 0; j < colorArray.length; j++)
-            if(colorArray[j] == colors[i]) colorCode.append(Integer.toString(j));
+        String code = "";
+        
+        for(int i = 0; i < colorArray.length; i++){
+            if(colorArray[i].equals(colors[0])) code = Integer.toString(i);
+        }
+        for(int i = 0; i < colorArray.length; i++){
+            if(colorArray[i].equals(colors[1])) code += Integer.toString(i);
         }
         
-        return code;
+        return Integer.parseInt(code);
     }
 }
